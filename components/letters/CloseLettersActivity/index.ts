@@ -1,0 +1,1 @@
+export { CloseLettersActivity } from './CloseLettersActivity'

@@ -1,0 +1,115 @@
+/* House wrapper: roof triangle + body */
+.houseWrap {
+  max-width: 480px;
+  margin: 0 auto;
+}
+
+.roofSvg {
+  display: block;
+  width: 100%;
+  line-height: 0;
+}
+
+.houseBody {
+  border: 1px solid var(--rule);
+  border-top: none;
+  border-radius: 0 0 var(--radius-lg) var(--radius-lg);
+  padding: var(--space-3) var(--space-2) var(--space-3);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: var(--space-2);
+}
+
+.cell {
+  aspect-ratio: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition:
+    background var(--duration-fast),
+    border-color var(--duration-fast),
+    transform var(--duration-fast);
+  font-family: var(--font-read);
+  font-size: var(--text-lg);
+  font-weight: 400;
+  user-select: none;
+  position: relative;
+  min-height: 52px;
+  min-width: 44px;
+}
+
+/* Wide letters (M, W) — span 2 columns */
+.cell.wide {
+  grid-column: span 2;
+  aspect-ratio: auto;
+}
+
+/* Empty — not yet encountered */
+.cell.empty {
+  background: var(--paper-s);
+  border: 1px solid var(--rule);
+  color: var(--ink-4);
+}
+
+/* Seen — encountered but not mastered */
+.cell.seen {
+  background: var(--blue-dim);
+  border: 1px solid var(--blue-line);
+  color: var(--blue);
+}
+
+/* Mastered */
+.cell.mastered {
+  background: var(--teal-dim);
+  border: 1px solid var(--teal);
+  color: var(--teal);
+}
+
+.cell:hover {
+  transform: scale(1.04);
+  z-index: 1;
+}
+
+.letter {
+  line-height: 1;
+}
+
+.diacriticDot {
+  position: absolute;
+  bottom: 4px;
+  right: 4px;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--ink-3);
+}
+
+.cell.seen .diacriticDot {
+  background: var(--blue);
+}
+
+.cell.mastered .diacriticDot {
+  background: var(--teal);
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+  .houseWrap {
+    max-width: 100%;
+  }
+
+  .grid {
+    gap: var(--space-1);
+  }
+
+  .cell {
+    font-size: var(--text-base);
+    min-height: 44px;
+    min-width: 36px;
+  }
+}

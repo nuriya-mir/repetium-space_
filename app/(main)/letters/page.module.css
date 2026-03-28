@@ -1,0 +1,128 @@
+.page {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: var(--space-8) var(--space-6);
+}
+
+@media (max-width: 640px) {
+  .page {
+    padding: var(--space-6) var(--space-4);
+  }
+}
+
+.title {
+  font-family: var(--font-ui);
+  font-size: var(--text-xl);
+  font-weight: 300;
+  color: var(--ink);
+  letter-spacing: var(--tracking-tight);
+  margin-bottom: var(--space-6);
+}
+
+/* 3-column row of house cards */
+.cardsRow {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-4);
+}
+
+@media (max-width: 600px) {
+  .cardsRow {
+    grid-template-columns: 1fr;
+  }
+}
+
+.card {
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  background: var(--paper-s);
+  border: 1px solid var(--rule);
+  border-radius: var(--radius-lg);
+  padding: var(--space-3);
+  transition: border-color var(--duration-fast), background var(--duration-fast);
+}
+
+.cardBlue:hover  { border-color: var(--blue-line);  background: var(--blue-dim);  }
+.cardGold:hover  { border-color: rgba(200,148,42,0.4); background: rgba(200,148,42,0.06); }
+.cardTeal:hover  { border-color: rgba(58,158,152,0.4); background: rgba(58,158,152,0.06); }
+
+/* Mini house */
+.miniHouse {
+  width: 100%;
+}
+
+.miniRoof {
+  display: block;
+  width: 100%;
+  line-height: 0;
+}
+
+.miniBody {
+  border-top: none;
+  border-radius: 0 0 3px 3px;
+  overflow: hidden;
+}
+
+.miniBody.blue { border: 1px solid var(--blue-line); border-top: none; }
+.miniBody.gold { border: 1px solid rgba(200,148,42,0.35); border-top: none; }
+.miniBody.teal { border: 1px solid rgba(58,158,152,0.30); border-top: none; }
+
+.miniGrid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 1px;
+  padding: 1px;
+  background: var(--rule-s);
+}
+
+.miniCell {
+  aspect-ratio: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-read);
+  font-size: 6.5px;
+  font-weight: 700;
+  color: var(--ink-4);
+  background: var(--paper-s);
+  border-radius: 1px;
+}
+
+.ipaGrid .miniCell {
+  font-size: 4.5px;
+  letter-spacing: -0.02em;
+}
+
+/* Card info */
+.cardInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.cardName {
+  font-family: var(--font-ui);
+  font-size: var(--text-md);
+  font-weight: 500;
+  color: var(--ink);
+}
+
+.cardDesc {
+  font-size: var(--text-sm);
+  color: var(--ink-3);
+  line-height: var(--leading-base);
+}
+
+.cardBlue  .cardName { color: var(--blue); }
+.cardGold  .cardName { color: var(--gold); }
+.cardTeal  .cardName { color: var(--teal); }
+
+.cardCount {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--ink-4);
+  letter-spacing: var(--tracking-mono);
+  margin-top: var(--space-1);
+}

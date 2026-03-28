@@ -1,0 +1,226 @@
+.page {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: var(--space-8) var(--space-6);
+}
+
+@media (max-width: 640px) {
+  .page {
+    padding: var(--space-6) var(--space-4);
+  }
+
+  .canvas {
+    width: min(300px, 100%);
+    height: auto;
+  }
+
+  .houseWrap {
+    max-width: 100%;
+  }
+
+  .grid {
+    gap: var(--space-1);
+  }
+
+  .cell {
+    font-size: var(--text-base);
+    min-height: 44px;
+  }
+}
+
+.header {
+  margin-bottom: var(--space-8);
+}
+
+.title {
+  font-family: var(--font-ui);
+  font-size: var(--text-xl);
+  font-weight: 300;
+  color: var(--gold);
+  letter-spacing: var(--tracking-tight);
+  margin-bottom: var(--space-2);
+}
+
+.desc {
+  font-size: var(--text-sm);
+  color: var(--ink-3);
+  line-height: var(--leading-base);
+}
+
+/* House wrapper */
+.houseWrap {
+  max-width: 480px;
+  margin: 0 auto;
+}
+
+.roofSvg {
+  display: block;
+  width: 100%;
+  line-height: 0;
+}
+
+.houseBody {
+  border: 1px solid rgba(200, 148, 42, 0.30);
+  border-top: none;
+  border-radius: 0 0 var(--radius-lg) var(--radius-lg);
+  padding: var(--space-3) var(--space-2);
+}
+
+/* Letter grid */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: var(--space-2);
+}
+
+.cell {
+  aspect-ratio: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--paper-s);
+  border: 1px dashed var(--rule);
+  color: var(--ink-4);
+  font-family: var(--font-read);
+  font-size: var(--text-lg);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  min-height: 52px;
+  min-width: 44px;
+  transition: background var(--duration-fast), border-color var(--duration-fast), color var(--duration-fast);
+}
+
+.cell:hover {
+  background: rgba(200, 148, 42, 0.10);
+  border-color: rgba(200, 148, 42, 0.50);
+  color: var(--gold);
+}
+
+/* M and W take double width */
+.cellWide {
+  grid-column: span 2;
+  aspect-ratio: auto;
+}
+
+/* Drawing area */
+.drawArea {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-5);
+}
+
+.drawHeader {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+}
+
+.drawLetter {
+  font-family: var(--font-read);
+  font-size: var(--text-2xl);
+  color: var(--blue);
+}
+
+.modeSelect {
+  font-family: var(--font-ui);
+  font-size: var(--text-sm);
+  color: var(--ink-2);
+  background: var(--paper-s);
+  border: 1px solid var(--rule);
+  border-radius: var(--radius-md);
+  padding: var(--space-2) var(--space-3);
+  height: 36px;
+  outline: none;
+}
+
+.canvas {
+  background: var(--paper);
+  border: 1px solid var(--rule);
+  border-radius: var(--radius-lg);
+  cursor: crosshair;
+  touch-action: none;
+}
+
+.drawTypeToggle {
+  display: flex;
+  border: 1px solid var(--rule);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+
+.drawTypeBtn {
+  flex: 1;
+  padding: var(--space-2) var(--space-3);
+  font-family: var(--font-ui);
+  font-size: var(--text-sm);
+  color: var(--ink-3);
+  background: var(--paper-s);
+  border: none;
+  cursor: pointer;
+  transition: background var(--duration-fast), color var(--duration-fast);
+  min-height: 36px;
+}
+
+.drawTypeBtnActive {
+  background: var(--blue);
+  color: var(--paper);
+}
+
+.canvasFree {
+  border-style: dashed;
+}
+
+.drawActions {
+  display: flex;
+  gap: var(--space-3);
+}
+
+/* Style selector (print / cursive) */
+.styleSelector {
+  display: flex;
+  gap: var(--space-3);
+  width: 100%;
+  max-width: 300px;
+}
+
+.styleCard {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-3) var(--space-2) var(--space-2);
+  background: var(--paper-s);
+  border: 1px solid var(--rule);
+  border-radius: var(--radius-lg);
+  cursor: pointer;
+  color: var(--ink-3);
+  transition: border-color var(--duration-fast), color var(--duration-fast), background var(--duration-fast);
+}
+
+.styleCard:hover {
+  border-color: rgba(200, 148, 42, 0.40);
+  color: var(--gold);
+}
+
+.styleCardActive {
+  border-color: var(--gold);
+  color: var(--gold);
+  background: rgba(200, 148, 42, 0.07);
+}
+
+.styleCardLabel {
+  font-family: var(--font-ui);
+  font-size: var(--text-xs);
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.styleCardPreview {
+  width: 100%;
+  height: auto;
+  display: block;
+  overflow: visible;
+}

@@ -1,0 +1,40 @@
+/* Import fonts */
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500&family=Atkinson+Hyperlegible:wght@400;700&family=DM+Mono:ital,wght@0,400;0,500&family=Dancing+Script:wght@400;700&family=Caveat:wght@400;700&family=Marck+Script&display=swap');
+
+/* Base */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html {
+  font-size: 16px;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--font-ui);
+  font-weight: 400;
+  font-size: var(--text-base);
+  line-height: var(--leading-base);
+  color: var(--ink);
+  background-color: var(--paper);
+  background-image: var(--mesh-bg);
+  background-attachment: fixed;
+  transition: background-color var(--duration-base), color var(--duration-base);
+}
+
+/* Logo / wordmark */
+.wordmark {
+  font-family: var(--font-ui);
+  font-weight: 300;
+  font-size: 18px;
+  color: var(--blue);
+  letter-spacing: 0.02em;
+  text-transform: lowercase;
+}
+
+/* French exercise text — always Atkinson Hyperlegible */
+.fr-text {
+  font-family: var(--font-read);
+  font-size: var(--text-md);
+  line-height: var(--leading-read);
+  letter-spacing: var(--tracking-read);
+}

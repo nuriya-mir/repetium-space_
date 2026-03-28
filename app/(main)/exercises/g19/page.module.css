@@ -1,0 +1,477 @@
+/* ── Page layouts ── */
+.page {
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 0 var(--space-6);
+}
+
+/* Fixed layout for show/collect phases — scrollable text, fixed drop zone */
+.pageFixed {
+  height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 0 var(--space-6);
+  overflow: hidden;
+}
+
+/* ── Top bar ── */
+.topbar {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-4) 0 var(--space-3);
+  border-bottom: 1px solid var(--rule);
+  margin-bottom: var(--space-5);
+  flex-shrink: 0;
+}
+
+.backBtn {
+  width: var(--touch-min);
+  height: var(--touch-min);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--rule);
+  border-radius: var(--radius-md);
+  background: var(--paper-s);
+  color: var(--ink-3);
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: color var(--duration-fast), background var(--duration-fast);
+}
+
+.backBtn:hover {
+  color: var(--ink);
+  background: var(--paper-e);
+}
+
+.groupLabel {
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+  color: var(--ink-3);
+  letter-spacing: var(--tracking-mono);
+  flex: 1;
+}
+
+.topbarRight {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+/* ── Format toggle ── */
+.formatToggle {
+  display: flex;
+  align-items: center;
+  background: var(--paper-s);
+  border: 1px solid var(--rule);
+  border-radius: var(--radius-md);
+  padding: 2px;
+  gap: 2px;
+}
+
+.formatBtn {
+  border: none;
+  background: transparent;
+  border-radius: calc(var(--radius-md) - 2px);
+  padding: 3px 8px;
+  font-family: var(--font-ui);
+  font-size: 11px;
+  color: var(--ink-3);
+  cursor: pointer;
+  line-height: 1;
+  transition: background var(--duration-fast), color var(--duration-fast);
+}
+
+.formatBtnLarge { font-size: 15px; }
+.formatBtn:hover { color: var(--ink-2); }
+
+.formatBtnActive {
+  background: var(--paper);
+  color: var(--blue);
+  box-shadow: var(--shadow-sm);
+}
+
+.hintBtn {
+  font-family: var(--font-ui);
+  font-size: var(--text-sm);
+  color: var(--ink-3);
+  background: none;
+  border: 1px solid var(--rule);
+  border-radius: var(--radius-md);
+  padding: var(--space-1) var(--space-3);
+  cursor: pointer;
+  min-height: 32px;
+  transition: color var(--duration-fast), border-color var(--duration-fast);
+  white-space: nowrap;
+}
+
+.hintBtn:hover {
+  color: var(--ink);
+  border-color: var(--ink-3);
+}
+
+/* ── Select phase ── */
+.selectWrap {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+  padding-top: var(--space-4);
+}
+
+.selectPrompt {
+  font-family: var(--font-ui);
+  font-size: var(--text-xl);
+  font-weight: 300;
+  color: var(--ink-2);
+}
+
+.errorMsg {
+  font-size: var(--text-sm);
+  color: var(--flicker);
+}
+
+.lengthRow {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.lengthSelect {
+  font-family: var(--font-ui);
+  font-size: var(--text-base);
+  color: var(--ink);
+  background: var(--paper-s);
+  border: 1px solid var(--rule);
+  border-radius: var(--radius-md);
+  padding: var(--space-2) var(--space-3);
+  min-height: 44px;
+  cursor: pointer;
+  outline: none;
+  appearance: none;
+  -webkit-appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23999' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right var(--space-3) center;
+  padding-right: var(--space-8);
+  transition: border-color var(--duration-fast);
+}
+
+.lengthSelect:focus {
+  border-color: var(--blue);
+}
+
+.startBtn {
+  font-family: var(--font-ui);
+  font-size: var(--text-base);
+  font-weight: 500;
+  color: var(--paper);
+  background: var(--blue);
+  border: none;
+  border-radius: var(--radius-md);
+  padding: var(--space-2) var(--space-6);
+  min-height: 44px;
+  cursor: pointer;
+  transition: opacity var(--duration-fast);
+  white-space: nowrap;
+}
+
+.startBtn:hover { opacity: 0.85; }
+
+.lengthLabel {
+  font-family: var(--font-ui);
+  font-size: var(--text-sm);
+  color: var(--ink-4);
+  text-align: center;
+}
+
+/* ── Loading ── */
+.loadingWrap {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-4);
+}
+
+.spinner {
+  width: 32px;
+  height: 32px;
+  border: 2px solid var(--rule);
+  border-top-color: var(--blue);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+.loadingText {
+  font-family: var(--font-ui);
+  font-size: var(--text-base);
+  color: var(--ink-3);
+}
+
+/* ── Exercise text area ── */
+.exerciseArea {
+  flex: 1;
+  overflow-y: auto;
+  padding-bottom: var(--space-3);
+}
+
+.exerciseText {
+  font-family: var(--font-read);
+  font-size: var(--text-lg);
+  line-height: 2.2;
+  color: var(--ink);
+}
+
+.exerciseTextAdapted {
+  font-size: 24px;
+  line-height: 2.8;
+  letter-spacing: 0.06em;
+  word-spacing: 0.18em;
+}
+
+/* ── Word states ── */
+/* Show phase: highlighted targets */
+.highlightWord {
+  background: var(--hl-focus);
+  color: var(--ink);
+  border-radius: 3px;
+  padding: 0 2px;
+}
+
+/* Collect phase: draggable target */
+.draggableWord {
+  display: inline-block;
+  border-bottom: 1.5px dashed var(--blue-line);
+  border-radius: 2px;
+  padding: 0 2px;
+  cursor: grab;
+  color: var(--ink);
+  transition: background var(--duration-fast), color var(--duration-fast);
+}
+
+.draggableWord:hover {
+  background: var(--blue-dim);
+  color: var(--blue);
+  border-bottom-color: var(--blue);
+}
+
+.draggableWord:active {
+  cursor: grabbing;
+}
+
+/* While being dragged — invisible in original position, ghost is visible */
+.wordDragging {
+  opacity: 0;
+}
+
+/* Hint: briefly highlight uncollected targets */
+.wordHinted {
+  background: var(--hl-focus);
+  color: var(--ink);
+  border-radius: 3px;
+  animation: hintFlash 0.3s ease;
+}
+
+/* Collected in text — dimmed */
+.collectedInText {
+  color: var(--ink-4);
+  text-decoration: line-through;
+  text-decoration-color: var(--ink-5, var(--ink-4));
+}
+
+/* ── Bottom bar (show phase) ── */
+.bottomBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-4) 0 var(--space-5);
+  border-top: 1px solid var(--rule);
+  gap: var(--space-4);
+  flex-shrink: 0;
+}
+
+.showHint {
+  font-family: var(--font-ui);
+  font-size: var(--text-sm);
+  color: var(--ink-3);
+}
+
+.readyBtn {
+  font-family: var(--font-ui);
+  font-size: var(--text-base);
+  font-weight: 500;
+  color: var(--paper);
+  background: var(--blue);
+  border: none;
+  border-radius: var(--radius-md);
+  padding: var(--space-3) var(--space-6);
+  min-height: 44px;
+  cursor: pointer;
+  transition: opacity var(--duration-fast);
+  white-space: nowrap;
+}
+
+.readyBtn:hover { opacity: 0.85; }
+
+/* ── Drop zone (collect phase) ── */
+.dropZone {
+  flex-shrink: 0;
+  min-height: 80px;
+  margin-bottom: var(--space-4);
+  border: 2px dashed var(--rule);
+  border-radius: var(--radius-lg);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-3) var(--space-4);
+  gap: var(--space-3);
+  background: var(--paper-s);
+  transition: border-color var(--duration-fast), background var(--duration-fast);
+}
+
+.dropZoneHasItems {
+  border-color: var(--blue-line);
+  background: var(--blue-dim);
+}
+
+.dropZonePlaceholder {
+  font-family: var(--font-ui);
+  font-size: var(--text-sm);
+  color: var(--ink-4);
+  flex: 1;
+  text-align: center;
+}
+
+.droppedChips {
+  flex: 1;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  align-items: center;
+}
+
+.droppedChip {
+  font-family: var(--font-read);
+  font-size: var(--text-base);
+  color: var(--teal);
+  background: var(--paper);
+  border: 1px solid var(--teal-line, var(--rule));
+  border-radius: var(--radius-sm);
+  padding: 2px 8px;
+  animation: chipIn 0.2s ease;
+}
+
+.dropCounter {
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+  color: var(--ink-3);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+/* ── Complete phase ── */
+.completeWrap {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+  padding-bottom: var(--space-8);
+}
+
+.completeTitle {
+  font-family: var(--font-ui);
+  font-size: var(--text-xl);
+  font-weight: 300;
+  color: var(--teal);
+  letter-spacing: var(--tracking-tight);
+}
+
+.completedBox {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+.doneChip {
+  font-family: var(--font-read);
+  font-size: var(--text-base);
+  color: var(--teal);
+  background: var(--paper-s);
+  border: 1px solid var(--rule);
+  border-radius: var(--radius-sm);
+  padding: 3px 10px;
+}
+
+.completeActions {
+  display: flex;
+  gap: var(--space-3);
+  flex-wrap: wrap;
+}
+
+.actionBtn {
+  font-family: var(--font-ui);
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--paper);
+  background: var(--blue);
+  border: none;
+  border-radius: var(--radius-md);
+  padding: var(--space-3) var(--space-5);
+  min-height: 44px;
+  cursor: pointer;
+  transition: opacity var(--duration-fast);
+}
+
+.actionBtn:hover { opacity: 0.85; }
+
+.actionBtnGhost {
+  background: transparent;
+  color: var(--ink-3);
+  border: 1px solid var(--rule);
+}
+
+.actionBtnGhost:hover {
+  opacity: 1;
+  color: var(--ink);
+  border-color: var(--ink-3);
+}
+
+/* ── Animations ── */
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes chipIn {
+  from { transform: scale(0.8); opacity: 0; }
+  to   { transform: scale(1); opacity: 1; }
+}
+
+@keyframes hintFlash {
+  from { background: transparent; }
+  to   { background: var(--hl-focus); }
+}
+
+/* ── Mobile ── */
+@media (max-width: 480px) {
+  .page,
+  .pageFixed {
+    padding: 0 var(--space-4);
+  }
+
+  .exerciseText {
+    font-size: var(--text-base);
+    line-height: 2.4;
+  }
+
+  .dropZone {
+    min-height: 70px;
+  }
+}

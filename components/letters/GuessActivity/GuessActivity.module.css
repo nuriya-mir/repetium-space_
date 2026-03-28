@@ -1,0 +1,379 @@
+.wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-4);
+  position: relative;
+  user-select: none;
+}
+
+/* ── Mode toggle ── */
+.modeToggle {
+  display: flex;
+  gap: 2px;
+  background: var(--paper-s);
+  border-radius: var(--radius-md);
+  padding: 3px;
+  width: 100%;
+}
+
+.modeBtn {
+  flex: 1;
+  padding: var(--space-1) var(--space-2);
+  border-radius: calc(var(--radius-md) - 2px);
+  font-family: var(--font-ui);
+  font-size: var(--text-sm);
+  color: var(--ink-3);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  min-height: 36px;
+  transition: background var(--duration-fast), color var(--duration-fast);
+  white-space: nowrap;
+}
+
+.modeBtnActive {
+  background: var(--paper);
+  color: var(--blue);
+  box-shadow: 0 1px 3px rgba(28, 26, 22, 0.10);
+}
+
+/* ── Play button ── */
+.playBtn {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: var(--blue-dim);
+  border: 2px solid var(--blue-line);
+  color: var(--blue);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background var(--duration-fast), transform var(--duration-fast), box-shadow var(--duration-fast);
+}
+
+.playBtn:hover {
+  background: var(--blue);
+  color: var(--paper);
+  transform: scale(1.05);
+  box-shadow: 0 4px 16px rgba(58, 110, 160, 0.30);
+}
+
+.playBtnPlaying {
+  animation: pulse 0.8s ease-in-out infinite;
+}
+
+.playBtnDone {
+  background: var(--teal-dim);
+  border-color: var(--teal);
+  color: var(--teal);
+}
+
+/* ── Prompt ── */
+.prompt {
+  font-family: var(--font-ui);
+  font-size: var(--text-base);
+  color: var(--ink-2);
+  text-align: center;
+}
+
+/* ── Mode 1: Choice buttons ── */
+.choices {
+  display: flex;
+  gap: var(--space-3);
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.choiceBtn {
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-read);
+  font-size: var(--text-xl);
+  font-weight: 600;
+  color: var(--ink-2);
+  background: var(--paper-s);
+  border: 1px solid var(--rule);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: background var(--duration-fast), border-color var(--duration-fast), color var(--duration-fast);
+}
+
+.choiceBtn:hover:not(:disabled) {
+  border-color: var(--blue);
+  color: var(--blue);
+  background: var(--blue-dim);
+}
+
+.choiceBtn:disabled {
+  opacity: 0.45;
+  cursor: default;
+}
+
+.choiceBtnCorrect {
+  border-color: var(--teal) !important;
+  color: var(--teal) !important;
+  background: var(--teal-dim) !important;
+  opacity: 1 !important;
+  animation: glow 0.5s ease;
+}
+
+.choiceBtnWrong {
+  border-color: var(--flicker) !important;
+  color: var(--flicker) !important;
+  animation: shake 0.4s ease;
+}
+
+/* ── Mode 2: Drag to zone ── */
+.dragMode {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-4);
+  width: 100%;
+}
+
+.dropZone {
+  width: 88px;
+  height: 88px;
+  border: 2px dashed var(--teal);
+  border-radius: var(--radius-lg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--teal-dim);
+  transition: border-color var(--duration-fast), background var(--duration-fast);
+}
+
+.dropZoneCorrect {
+  border-style: solid;
+  border-color: var(--teal);
+  background: var(--teal-dim);
+  animation: glow 0.5s ease;
+}
+
+.dropZoneWrong {
+  border-color: var(--flicker);
+  animation: shake 0.4s ease;
+}
+
+.dropZoneLetter {
+  font-family: var(--font-read);
+  font-size: var(--text-2xl);
+  font-weight: 700;
+  color: var(--teal);
+}
+
+.dropZoneHint {
+  font-family: var(--font-ui);
+  font-size: var(--text-xs);
+  color: var(--teal);
+  text-align: center;
+  padding: var(--space-2);
+}
+
+.dragTokens {
+  display: flex;
+  gap: var(--space-3);
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.dragToken {
+  width: 56px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-read);
+  font-size: var(--text-xl);
+  font-weight: 600;
+  color: var(--blue);
+  background: var(--paper-s);
+  border: 2px solid var(--blue-line);
+  border-radius: var(--radius-md);
+  cursor: grab;
+  touch-action: none;
+  transition: transform var(--duration-fast), box-shadow var(--duration-fast), opacity var(--duration-fast);
+}
+
+.dragToken:hover {
+  background: var(--blue-dim);
+  border-color: var(--blue);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(58, 110, 160, 0.20);
+}
+
+.dragTokenDragging {
+  opacity: 0.25;
+  transform: none !important;
+  box-shadow: none !important;
+}
+
+/* ── Mode 3: Keyboard ── */
+.keyboardMode {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.inputWrap {
+  border: 2px solid var(--rule);
+  border-radius: var(--radius-lg);
+  padding: var(--space-3) var(--space-5);
+  background: var(--paper-s);
+  transition: border-color var(--duration-fast), background var(--duration-fast);
+}
+
+.inputWrapCorrect {
+  border-color: var(--teal);
+  background: var(--teal-dim);
+  animation: glow 0.5s ease;
+}
+
+.inputWrapWrong {
+  border-color: var(--flicker);
+  animation: shake 0.4s ease;
+}
+
+.letterInput {
+  font-family: var(--font-read);
+  font-size: var(--text-3xl);
+  font-weight: 700;
+  color: var(--ink);
+  background: transparent;
+  border: none;
+  outline: none;
+  width: 56px;
+  text-align: center;
+  caret-color: var(--blue);
+}
+
+.letterInput::placeholder {
+  color: var(--ink-4);
+}
+
+.hint {
+  font-family: var(--font-ui);
+  font-size: var(--text-sm);
+  color: var(--gold);
+  animation: fadeIn 0.4s ease;
+}
+
+/* ── Replay button ── */
+.replayBtn {
+  font-family: var(--font-ui);
+  font-size: var(--text-sm);
+  color: var(--ink-3);
+  background: var(--paper-s);
+  border: 1px solid var(--rule);
+  border-radius: var(--radius-md);
+  padding: var(--space-1) var(--space-4);
+  cursor: pointer;
+  min-height: 36px;
+  transition: color var(--duration-fast), border-color var(--duration-fast), background var(--duration-fast);
+}
+
+.replayBtn:hover:not(:disabled) {
+  color: var(--blue);
+  border-color: var(--blue-line);
+  background: var(--blue-dim);
+}
+
+.replayBtn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+/* ── Actions ── */
+.actions {
+  display: flex;
+  justify-content: center;
+}
+
+/* ── Drag ghost ── */
+.ghost {
+  position: fixed;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%) rotate(4deg);
+  width: 56px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-read);
+  font-size: var(--text-xl);
+  font-weight: 600;
+  color: var(--paper);
+  background: var(--blue);
+  border: 2px solid var(--blue);
+  border-radius: var(--radius-md);
+  box-shadow: 0 8px 24px rgba(58, 110, 160, 0.40);
+}
+
+/* ── Animations ── */
+@keyframes glow {
+  0%   { box-shadow: 0 0 0 0 rgba(58, 158, 152, 0.4); }
+  50%  { box-shadow: 0 0 0 8px rgba(58, 158, 152, 0.15); }
+  100% { box-shadow: 0 0 0 0 rgba(58, 158, 152, 0); }
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  20%       { transform: translateX(-6px); }
+  40%       { transform: translateX(6px); }
+  60%       { transform: translateX(-4px); }
+  80%       { transform: translateX(4px); }
+}
+
+@keyframes pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(58, 110, 160, 0.3); }
+  50%       { box-shadow: 0 0 0 10px rgba(58, 110, 160, 0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(4px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── Mobile ── */
+@media (max-width: 480px) {
+  .playBtn {
+    width: 64px;
+    height: 64px;
+  }
+
+  .playBtn svg {
+    width: 24px;
+    height: 24px;
+  }
+
+  .choiceBtn {
+    width: 52px;
+    height: 52px;
+    font-size: var(--text-lg);
+  }
+
+  .dragToken {
+    width: 52px;
+    height: 52px;
+    font-size: var(--text-lg);
+  }
+
+  .ghost {
+    width: 52px;
+    height: 52px;
+    font-size: var(--text-lg);
+  }
+
+  .modeBtn {
+    font-size: var(--text-xs);
+    padding: var(--space-1);
+  }
+}

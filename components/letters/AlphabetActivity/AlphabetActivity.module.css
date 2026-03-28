@@ -1,0 +1,215 @@
+.wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-4);
+}
+
+/* ── Direction toggle ── */
+.dirToggle {
+  display: flex;
+  gap: var(--space-2);
+  background: var(--paper-s);
+  border-radius: var(--radius-md);
+  padding: 3px;
+}
+
+.dirBtn {
+  padding: var(--space-1) var(--space-4);
+  border-radius: calc(var(--radius-md) - 2px);
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+  color: var(--ink-3);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: background var(--duration-fast), color var(--duration-fast);
+  min-height: 44px;
+}
+
+.dirBtnActive {
+  background: var(--paper);
+  color: var(--blue);
+  box-shadow: 0 1px 3px rgba(28, 26, 22, 0.10);
+}
+
+/* ── House grid ── */
+.houseWrap {
+  width: 100%;
+  max-width: 440px;
+}
+
+.roofSvg {
+  display: block;
+  width: 100%;
+  line-height: 0;
+}
+
+.houseBody {
+  border: 1px solid var(--rule);
+  border-top: none;
+  border-radius: 0 0 var(--radius-lg) var(--radius-lg);
+  padding: var(--space-3) var(--space-2) var(--space-3);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 4px;
+}
+
+.cell {
+  aspect-ratio: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-sm);
+  font-family: var(--font-read);
+  font-size: var(--text-base);
+  font-weight: 400;
+  transition: background var(--duration-fast), border-color var(--duration-fast);
+  min-height: 40px;
+}
+
+.cell.wide {
+  grid-column: span 2;
+  aspect-ratio: auto;
+}
+
+/* Done — completed letters */
+.cell.done {
+  background: var(--paper-s);
+  color: var(--ink-4);
+  opacity: 0.45;
+}
+
+/* Current — active letter being identified */
+.cell.current {
+  background: var(--teal-dim);
+  border: 2px solid var(--teal);
+  color: var(--teal);
+  font-weight: 600;
+  animation: pulse 1.8s ease-in-out infinite;
+}
+
+/* Upcoming — not yet reached */
+.cell.upcoming {
+  background: var(--paper-s);
+  border: 1px solid var(--rule);
+  color: var(--ink-3);
+}
+
+/* ── Prompt ── */
+.prompt {
+  font-family: var(--font-ui);
+  font-size: var(--text-base);
+  color: var(--ink-2);
+  text-align: center;
+}
+
+/* ── Choice buttons ── */
+.choices {
+  display: flex;
+  gap: var(--space-3);
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.choiceBtn {
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-read);
+  font-size: var(--text-xl);
+  color: var(--ink-2);
+  background: var(--paper-s);
+  border: 1px solid var(--rule);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: background var(--duration-fast), border-color var(--duration-fast), color var(--duration-fast);
+}
+
+.choiceBtn:hover:not(:disabled) {
+  border-color: var(--blue);
+  color: var(--blue);
+  background: var(--blue-dim);
+}
+
+.choiceBtn:disabled {
+  cursor: default;
+  opacity: 0.5;
+}
+
+.choiceBtnCorrect {
+  border-color: var(--teal) !important;
+  color: var(--teal) !important;
+  background: var(--teal-dim) !important;
+  animation: glow 0.5s ease;
+}
+
+.choiceBtnWrong {
+  border-color: var(--flicker) !important;
+  color: var(--flicker) !important;
+  animation: shake 0.4s ease;
+}
+
+/* ── Completion ── */
+.completionWrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-4);
+}
+
+.completionText {
+  font-family: var(--font-ui);
+  font-size: var(--text-base);
+  color: var(--teal);
+  text-align: center;
+}
+
+/* ── Actions ── */
+.actions {
+  display: flex;
+  justify-content: center;
+}
+
+/* ── Animations ── */
+@keyframes pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(58, 158, 152, 0.30); }
+  50%       { box-shadow: 0 0 0 5px rgba(58, 158, 152, 0); }
+}
+
+@keyframes glow {
+  0%   { box-shadow: 0 0 0 0 rgba(58, 158, 152, 0.4); }
+  50%  { box-shadow: 0 0 0 8px rgba(58, 158, 152, 0.15); }
+  100% { box-shadow: 0 0 0 0 rgba(58, 158, 152, 0); }
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  20%       { transform: translateX(-6px); }
+  40%       { transform: translateX(6px); }
+  60%       { transform: translateX(-4px); }
+  80%       { transform: translateX(4px); }
+}
+
+/* ── Mobile ── */
+@media (max-width: 480px) {
+  .cell {
+    font-size: var(--text-sm);
+    min-height: 34px;
+  }
+
+  .choiceBtn {
+    width: 54px;
+    height: 54px;
+    font-size: var(--text-lg);
+  }
+
+  .dirBtn {
+    padding: var(--space-1) var(--space-3);
+  }
+}

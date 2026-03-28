@@ -1,0 +1,41 @@
+.tabs {
+  display: flex;
+  gap: var(--space-3);
+  margin-bottom: var(--space-8);
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 0;
+}
+
+.tab {
+  padding: var(--space-2) var(--space-3);
+  text-decoration: none;
+  border-bottom: 2px solid transparent;
+  min-height: var(--touch-min);
+  min-width: var(--touch-min);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color var(--duration-fast), border-color var(--duration-fast);
+  margin-bottom: -1px;
+}
+
+/* Inactive — muted accent color per house */
+.tab[data-accent="blue"] { color: rgba(58, 110, 160, 0.38); }
+.tab[data-accent="gold"] { color: rgba(200, 148, 42,  0.38); }
+.tab[data-accent="teal"] { color: rgba(58, 158, 152, 0.38); }
+
+/* Hover — slightly more saturated */
+.tab[data-accent="blue"]:hover { color: rgba(58, 110, 160, 0.65); }
+.tab[data-accent="gold"]:hover { color: rgba(200, 148, 42,  0.65); }
+.tab[data-accent="teal"]:hover { color: rgba(58, 158, 152, 0.65); }
+
+/* Active — full accent color + underline */
+.tab.active[data-accent="blue"] { color: var(--blue); border-bottom-color: var(--blue); }
+.tab.active[data-accent="gold"] { color: var(--gold); border-bottom-color: var(--gold); }
+.tab.active[data-accent="teal"] { color: var(--teal); border-bottom-color: var(--teal); }
+
+.houseIcon {
+  width: 28px;
+  height: 24px;
+  display: block;
+}

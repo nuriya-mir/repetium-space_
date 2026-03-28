@@ -1,0 +1,59 @@
+.container {
+  padding: var(--space-6);
+  background: var(--paper-s);
+  border: 1px solid var(--rule);
+  border-radius: var(--radius-lg);
+  position: relative;
+  transition: opacity var(--duration-slow);
+}
+
+.fadeOut {
+  opacity: 0;
+}
+
+.textBlock {
+  font-family: var(--font-read);
+  font-size: var(--text-md);
+  line-height: var(--leading-read);
+  letter-spacing: var(--tracking-read);
+  color: var(--ink);
+}
+
+.highlight {
+  padding: 1px 2px;
+  border-radius: 2px;
+  transition: background var(--duration-base);
+}
+
+.hl1 { background: var(--hl-1); }
+.hl2 { background: var(--hl-2); }
+.hl3 { background: var(--hl-3); }
+.hl4 { background: var(--hl-4); }
+
+.hidden {
+  background: transparent;
+  color: transparent;
+  border-bottom: 1px dashed var(--ink-4);
+}
+
+.audioBtn {
+  position: absolute;
+  top: var(--space-3);
+  right: var(--space-3);
+  width: var(--touch-min);
+  height: var(--touch-min);
+  border: none;
+  background: transparent;
+  color: var(--ink-3);
+  cursor: pointer;
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color var(--duration-fast), background var(--duration-fast);
+}
+
+.audioBtn:hover {
+  color: var(--blue);
+  background: var(--blue-dim);
+}

@@ -1,0 +1,254 @@
+.wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-4);
+  position: relative;
+  user-select: none;
+}
+
+/* ── Prompt ── */
+.prompt {
+  font-family: var(--font-ui);
+  font-size: var(--text-base);
+  color: var(--ink-2);
+  text-align: center;
+}
+
+/* ── House ── */
+.houseWrap {
+  width: 100%;
+  max-width: 440px;
+}
+
+.roofSvg {
+  display: block;
+  width: 100%;
+  line-height: 0;
+}
+
+.houseBody {
+  border: 1px solid var(--rule);
+  border-top: none;
+  border-radius: 0 0 var(--radius-lg) var(--radius-lg);
+  padding: var(--space-3) var(--space-2) var(--space-3);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 4px;
+}
+
+/* Transparent spacer for non-target letters */
+.placeholder {
+  aspect-ratio: 1;
+  background: transparent;
+  border: none;
+  pointer-events: none;
+}
+
+.placeholder.wide {
+  grid-column: span 2;
+  aspect-ratio: auto;
+}
+
+/* Active target cell */
+.cell {
+  aspect-ratio: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-sm);
+  border: 2px dashed var(--rule);
+  background: var(--paper-s);
+  cursor: pointer;
+  transition: border-color var(--duration-fast), background var(--duration-fast);
+  min-height: 38px;
+}
+
+.cell.wide {
+  grid-column: span 2;
+  aspect-ratio: auto;
+}
+
+.cellTarget {
+  border-style: dashed;
+}
+
+.cellTarget:hover {
+  border-color: var(--blue);
+  background: var(--blue-dim);
+}
+
+/* Correctly placed */
+.cellPlaced {
+  border: 2px solid var(--teal);
+  background: var(--teal-dim);
+  animation: glow 0.5s ease;
+  cursor: default;
+}
+
+.cellLetter {
+  font-family: var(--font-read);
+  font-size: var(--text-base);
+  font-weight: 600;
+  color: var(--teal);
+}
+
+/* Wrong drop */
+.cellWrong {
+  border-color: var(--flicker) !important;
+  animation: shake 0.4s ease;
+}
+
+/* Hint pulse (gold) */
+.cellHint {
+  border-color: var(--gold) !important;
+  animation: hintPulse 1s ease-in-out infinite;
+}
+
+/* Highlighted when a token is selected */
+.cellHighlighted {
+  border-color: var(--blue);
+  background: var(--blue-dim);
+}
+
+/* ── Letter tray ── */
+.tray {
+  display: flex;
+  gap: var(--space-3);
+  flex-wrap: wrap;
+  justify-content: center;
+  min-height: 64px;
+  align-items: center;
+  padding: var(--space-2) 0;
+  border-top: 1px solid var(--rule-s);
+  width: 100%;
+  max-width: 440px;
+}
+
+.token {
+  width: 56px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-read);
+  font-size: var(--text-xl);
+  font-weight: 600;
+  color: var(--blue);
+  background: var(--paper-s);
+  border: 2px solid var(--blue-line);
+  border-radius: var(--radius-md);
+  cursor: grab;
+  touch-action: none;
+  transition: background var(--duration-fast), border-color var(--duration-fast), transform var(--duration-fast), box-shadow var(--duration-fast);
+}
+
+.token:hover {
+  background: var(--blue-dim);
+  border-color: var(--blue);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(58, 110, 160, 0.20);
+}
+
+.tokenSelected {
+  background: var(--blue) !important;
+  border-color: var(--blue) !important;
+  color: var(--paper) !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 4px 12px rgba(58, 110, 160, 0.30) !important;
+}
+
+.tokenDragging {
+  opacity: 0.25;
+  transform: none !important;
+  box-shadow: none !important;
+}
+
+/* ── Drag ghost ── */
+.ghost {
+  position: fixed;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+  width: 56px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-read);
+  font-size: var(--text-xl);
+  font-weight: 600;
+  color: var(--paper);
+  background: var(--blue);
+  border: 2px solid var(--blue);
+  border-radius: var(--radius-md);
+  box-shadow: 0 8px 24px rgba(58, 110, 160, 0.40);
+  rotate: 3deg;
+}
+
+/* ── Completion ── */
+.completion {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-4);
+}
+
+.completionText {
+  font-family: var(--font-ui);
+  font-size: var(--text-base);
+  color: var(--teal);
+  text-align: center;
+}
+
+/* ── Actions ── */
+.actions {
+  display: flex;
+  justify-content: center;
+}
+
+/* ── Animations ── */
+@keyframes glow {
+  0%   { box-shadow: 0 0 0 0 rgba(58, 158, 152, 0.4); }
+  50%  { box-shadow: 0 0 0 8px rgba(58, 158, 152, 0.15); }
+  100% { box-shadow: 0 0 0 0 rgba(58, 158, 152, 0); }
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  20%       { transform: translateX(-5px); }
+  40%       { transform: translateX(5px); }
+  60%       { transform: translateX(-3px); }
+  80%       { transform: translateX(3px); }
+}
+
+@keyframes hintPulse {
+  0%, 100% { border-color: var(--gold); box-shadow: 0 0 0 0 rgba(200, 148, 42, 0.3); }
+  50%       { border-color: var(--gold); box-shadow: 0 0 0 6px rgba(200, 148, 42, 0); }
+}
+
+/* ── Mobile ── */
+@media (max-width: 480px) {
+  .cell {
+    min-height: 32px;
+  }
+
+  .cellLetter {
+    font-size: var(--text-sm);
+  }
+
+  .token {
+    width: 52px;
+    height: 52px;
+    font-size: var(--text-lg);
+  }
+
+  .ghost {
+    width: 52px;
+    height: 52px;
+    font-size: var(--text-lg);
+  }
+}

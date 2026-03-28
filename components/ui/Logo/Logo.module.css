@@ -1,0 +1,30 @@
+.root {
+  display: inline-flex;
+  align-items: center;
+  color: var(--blue);
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.horizontal {
+  flex-direction: row;
+  gap: 14px;
+}
+
+.stack {
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+}
+
+.wordmark {
+  font-family: var(--font-ui);
+  font-weight: 300;
+  letter-spacing: 0.01em;
+  color: var(--blue);
+  white-space: nowrap;
+}
+
+.dotSpace {
+  opacity: 0.60;
+}

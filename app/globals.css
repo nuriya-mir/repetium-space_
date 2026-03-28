@@ -1,0 +1,68 @@
+@import '../styles/tokens.css';
+@import '../styles/typography.css';
+
+html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* ── Reduced motion: system setting ── */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ── No-animations: explicit user toggle ── */
+body.no-animations *,
+body.no-animations *::before,
+body.no-animations *::after {
+  animation-duration: 0.01ms !important;
+  animation-iteration-count: 1 !important;
+  transition-duration: 0.01ms !important;
+}
+
+body.no-animations .cellWrong {
+  border-color: var(--flicker) !important;
+  animation: none !important;
+}
+
+/* ── No-surprises: disable toast slide-ins ── */
+body.no-surprises [data-toast] {
+  animation: none !important;
+  transform: none !important;
+}
+
+/* ── Reading color overlays (applied to .fr-text containers) ── */
+.overlay-yellow .fr-text { background-color: rgba(255, 249, 219, 0.70); border-radius: var(--radius-md); }
+.overlay-blue   .fr-text { background-color: rgba(219, 234, 254, 0.70); border-radius: var(--radius-md); }
+.overlay-pink   .fr-text { background-color: rgba(252, 231, 243, 0.70); border-radius: var(--radius-md); }
+.overlay-green  .fr-text { background-color: rgba(209, 250, 229, 0.70); border-radius: var(--radius-md); }
+.overlay-peach  .fr-text { background-color: rgba(254, 215, 170, 0.70); border-radius: var(--radius-md); }
+
+body.dark.overlay-yellow .fr-text { background-color: rgba(255, 249, 219, 0.12); }
+body.dark.overlay-blue   .fr-text { background-color: rgba(219, 234, 254, 0.12); }
+body.dark.overlay-pink   .fr-text { background-color: rgba(252, 231, 243, 0.12); }
+body.dark.overlay-green  .fr-text { background-color: rgba(209, 250, 229, 0.12); }
+body.dark.overlay-peach  .fr-text { background-color: rgba(254, 215, 170, 0.12); }
+
+/* ── OpenDyslexic font ── */
+@font-face {
+  font-family: 'OpenDyslexic';
+  src: url('https://cdn.jsdelivr.net/gh/antijingoist/opendyslexic@master/compiled/OpenDyslexic-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-display: swap;
+}
+
+body.font-opendyslexic {
+  --font-read: 'OpenDyslexic', 'Atkinson Hyperlegible', sans-serif;
+}

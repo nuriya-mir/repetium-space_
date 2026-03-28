@@ -1,0 +1,222 @@
+/* ─────────────────────────────────────────────
+   REPETIUM.SPACE · Design Tokens v3
+   Light mode (default)
+───────────────────────────────────────────── */
+:root {
+  /* Backgrounds */
+  --paper:   #F4F1EB;
+  --paper-s: #EDEAE2;
+  --paper-e: #E4E0D6;
+
+  /* Text */
+  --ink:   #1C1A16;
+  --ink-2: #4A4740;
+  --ink-3: #8A8780;
+  --ink-4: #B8B5AE;
+
+  /* Blue (headings, active nav, logo) */
+  --blue:      #3A6EA0;
+  --blue-dim:  rgba(58, 110, 160, 0.13);
+  --blue-line: rgba(58, 110, 160, 0.20);
+
+  /* Borders */
+  --rule:   rgba(28, 26, 22, 0.10);
+  --rule-s: rgba(28, 26, 22, 0.05);
+
+  /* Accent — gold */
+  --gold:     #C8942A;
+  --gold-dim: rgba(200, 148, 42, 0.15);
+
+  /* Feedback: correct — teal glow */
+  --teal:     #3A9E98;
+  --teal-dim: rgba(58, 158, 152, 0.15);
+
+  /* Feedback: try again — warm orange (NO RED) */
+  --flicker:     #E66400;
+  --flicker-dim: rgba(230, 100, 0, 0.12);
+
+  /* Exercise highlights */
+  --hl-1: rgba(58, 110, 160, 0.16);
+  --hl-2: rgba(80, 160, 120, 0.18);
+  --hl-3: rgba(160, 100, 60, 0.16);
+  --hl-4: rgba(130, 90, 170, 0.16);
+  --hl-focus: rgba(58, 110, 160, 0.34);
+  --hl-focus-h: rgba(58, 110, 160, 0.52);
+
+  /* Feedback tokens (no red anywhere) */
+  --fb-ok:      rgba(58, 110, 160, 0.12);
+  --fb-ok-b:    rgba(58, 110, 160, 0.28);
+  --fb-try:     rgba(180, 140, 80, 0.12);
+  --fb-try-b:   rgba(180, 140, 80, 0.28);
+  --fb-done:    rgba(100, 160, 80, 0.12);
+  --fb-done-b:  rgba(100, 160, 80, 0.28);
+
+  /* ── Gradients (used by PauseScreen, progress page, etc.) ── */
+  --grad-primary:   linear-gradient(135deg, #3A6EA0 0%, #5A9AC0 100%);
+  --grad-secondary: linear-gradient(135deg, #2A5E90 0%, #3A6EA0 100%);
+  --grad-aurora:    linear-gradient(135deg, #3A6EA0 0%, #5A9AC0 45%, #3A9E98 100%);
+  --grad-teal:      linear-gradient(135deg, #3A9E98 0%, #3A6EA0 100%);
+  --grad-gold:      linear-gradient(135deg, #C8942A 0%, #E0B050 100%);
+
+  /* ── Mesh background (subtle colour cloud behind content) ── */
+  --mesh-bg:
+    radial-gradient(ellipse at 18% 55%, rgba(58, 110, 160, 0.07) 0%, transparent 52%),
+    radial-gradient(ellipse at 82% 18%, rgba(58, 158, 152, 0.05) 0%, transparent 42%),
+    radial-gradient(ellipse at 62% 85%, rgba(200, 148, 42, 0.04) 0%, transparent 42%);
+
+  /* ── Glass (used by PauseScreen, progress page, etc.) ── */
+  --glass:        rgba(244, 241, 235, 0.82);
+  --glass-s:      rgba(237, 234, 226, 0.60);
+  --glass-border: rgba(255, 255, 255, 0.80);
+  --glass-blur:   16px;
+  --glass-shadow: 0 4px 20px rgba(28, 26, 22, 0.08), 0 1px 4px rgba(28, 26, 22, 0.04);
+
+  /* Button shadows */
+  --shadow-btn:       0 1px 3px rgba(28, 26, 22, 0.10), 0 1px 1px rgba(28, 26, 22, 0.06);
+  --shadow-btn-hover: 0 2px 8px rgba(28, 26, 22, 0.12), 0 1px 2px rgba(28, 26, 22, 0.08);
+  --shadow-btn-press: 0 0px 1px rgba(28, 26, 22, 0.08);
+
+  /* Typography */
+  --font-ui:      'Outfit', sans-serif;
+  --font-read:    'Atkinson Hyperlegible', sans-serif;
+  --font-mono:    'DM Mono', monospace;
+  --font-display: 'Source Serif 4', serif;
+
+  /* Font sizes */
+  --text-xs:  11px;
+  --text-sm:  13px;
+  --text-base: 15px;
+  --text-md:  17px;
+  --text-lg:  20px;
+  --text-xl:  24px;
+  --text-2xl: 30px;
+  --text-3xl: 38px;
+
+  /* Line heights */
+  --leading-tight:  1.3;
+  --leading-base:   1.6;
+  --leading-read:   2.0;
+  --leading-dyslexia: 2.4;
+
+  /* Letter spacing */
+  --tracking-tight:  -0.02em;
+  --tracking-normal:  0.0em;
+  --tracking-read:    0.03em;
+  --tracking-dyslexia: 0.08em;
+  --tracking-mono:    0.05em;
+  --tracking-label:   0.12em;
+
+  /* Spacing scale */
+  --space-1:  4px;
+  --space-2:  8px;
+  --space-3:  12px;
+  --space-4:  16px;
+  --space-5:  20px;
+  --space-6:  24px;
+  --space-8:  32px;
+  --space-10: 40px;
+  --space-12: 48px;
+  --space-16: 64px;
+
+  /* Border radius */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
+  --radius-full: 9999px;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 3px rgba(28, 26, 22, 0.08);
+  --shadow-md: 0 4px 12px rgba(28, 26, 22, 0.10);
+  --shadow-lg: 0 8px 24px rgba(28, 26, 22, 0.12);
+
+  /* Animation */
+  --ease-out:    cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --duration-fast:   150ms;
+  --duration-base:   250ms;
+  --duration-slow:   400ms;
+
+  /* Touch targets */
+  --touch-min: 44px;
+
+  /* Navbar height */
+  --navbar-h: 56px;
+}
+
+/* ─────────────────────────────────────────────
+   DARK MODE
+───────────────────────────────────────────── */
+body.dark {
+  --paper:   #1A1C22;
+  --paper-s: #22242E;
+  --paper-e: #2A2C36;
+
+  --ink:   #D8D4CE;
+  --ink-2: #9A9890;
+  --ink-3: #7E8090;
+  --ink-4: #6A6C78;
+
+  --blue:      #7AAAD0;
+  --blue-dim:  rgba(122, 170, 208, 0.12);
+  --blue-line: rgba(122, 170, 208, 0.25);
+
+  --rule:   rgba(255, 255, 255, 0.07);
+  --rule-s: rgba(255, 255, 255, 0.04);
+
+  --gold:     #F0C27F;
+  --gold-dim: rgba(240, 194, 127, 0.15);
+
+  --teal:     #4ECDC4;
+  --teal-dim: rgba(78, 205, 196, 0.15);
+
+  --flicker:     #F0916A;
+  --flicker-dim: rgba(240, 145, 106, 0.12);
+
+  --hl-1: rgba(100, 160, 210, 0.20);
+  --hl-2: rgba(80, 160, 120, 0.22);
+  --hl-3: rgba(200, 130, 80, 0.18);
+  --hl-4: rgba(160, 120, 200, 0.18);
+  --hl-focus: rgba(100, 160, 210, 0.42);
+  --hl-focus-h: rgba(100, 160, 210, 0.60);
+
+  --fb-ok:      rgba(100, 160, 210, 0.15);
+  --fb-ok-b:    rgba(100, 160, 210, 0.35);
+  --fb-try:     rgba(200, 160, 80, 0.15);
+  --fb-try-b:   rgba(200, 160, 80, 0.35);
+  --fb-done:    rgba(100, 160, 80, 0.18);
+  --fb-done-b:  rgba(100, 160, 80, 0.30);
+
+  --grad-primary:   linear-gradient(135deg, #4A7EAA 0%, #7AAAD0 100%);
+  --grad-secondary: linear-gradient(135deg, #3A6EA0 0%, #6A9AC0 100%);
+  --grad-aurora:    linear-gradient(135deg, #4A7EAA 0%, #7AAAD0 45%, #4ECDC4 100%);
+  --grad-teal:      linear-gradient(135deg, #4ECDC4 0%, #7AAAD0 100%);
+  --grad-gold:      linear-gradient(135deg, #F0C27F 0%, #F8D8A0 100%);
+
+  --mesh-bg:
+    radial-gradient(ellipse at 18% 55%, rgba(122, 170, 208, 0.09) 0%, transparent 52%),
+    radial-gradient(ellipse at 82% 18%, rgba(78, 205, 196, 0.07) 0%, transparent 42%),
+    radial-gradient(ellipse at 62% 85%, rgba(240, 194, 127, 0.05) 0%, transparent 42%);
+
+  --glass:        rgba(34, 36, 46, 0.80);
+  --glass-s:      rgba(34, 36, 46, 0.55);
+  --glass-border: rgba(255, 255, 255, 0.08);
+  --glass-blur:   16px;
+  --glass-shadow: 0 4px 20px rgba(0, 0, 0, 0.22), 0 1px 4px rgba(0, 0, 0, 0.14);
+
+  --shadow-btn:       0 1px 4px rgba(0, 0, 0, 0.22), 0 1px 1px rgba(0, 0, 0, 0.14);
+  --shadow-btn-hover: 0 3px 14px rgba(0, 0, 0, 0.30), 0 1px 3px rgba(0, 0, 0, 0.18);
+  --shadow-btn-press: 0 0px 2px rgba(0, 0, 0, 0.14);
+
+  --shadow-sm: 0 1px 4px rgba(0, 0, 0, 0.18);
+  --shadow-md: 0 4px 14px rgba(0, 0, 0, 0.22);
+  --shadow-lg: 0 8px 28px rgba(0, 0, 0, 0.28);
+}
+
+/* ─────────────────────────────────────────────
+   DYSLEXIA MODE (body.dyslexia class)
+───────────────────────────────────────────── */
+body.dyslexia {
+  --tracking-read:   0.08em;
+  --leading-read:    2.4;
+}

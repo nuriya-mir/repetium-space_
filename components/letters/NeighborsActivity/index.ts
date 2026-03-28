@@ -1,0 +1,1 @@
+export { NeighborsActivity } from './NeighborsActivity'

@@ -1,0 +1,11 @@
+.main {
+  padding-top: var(--navbar-h);
+  min-height: 100dvh;
+}
+
+@media (max-width: 640px) {
+  .main {
+    padding-top: 48px;
+    padding-bottom: 60px;
+  }
+}

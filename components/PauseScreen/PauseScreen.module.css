@@ -1,0 +1,132 @@
+.pauseBtn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 0 var(--space-3);
+  height: var(--touch-min);
+  min-width: var(--touch-min);
+  background: var(--glass-s);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-md);
+  color: var(--ink-3);
+  font-family: var(--font-ui);
+  font-size: var(--text-sm);
+  cursor: pointer;
+  transition: color var(--duration-fast), background var(--duration-fast), box-shadow var(--duration-fast);
+}
+
+.pauseBtn:hover {
+  color: var(--ink);
+  background: var(--glass);
+  box-shadow: var(--shadow-sm);
+}
+
+/* Overlay */
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(28, 26, 22, 0.55);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 500;
+  padding: var(--space-4);
+  animation: fadeOverlay var(--duration-base) var(--ease-out);
+}
+
+@keyframes fadeOverlay {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+.card {
+  background: var(--glass);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--glass-shadow), 0 20px 60px rgba(28, 26, 22, 0.14);
+  padding: var(--space-8) var(--space-8);
+  max-width: 360px;
+  width: 100%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  animation: slideUp var(--duration-base) var(--ease-out);
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.title {
+  font-family: var(--font-ui);
+  font-size: var(--text-lg);
+  font-weight: 400;
+  color: var(--ink);
+  line-height: var(--leading-tight);
+}
+
+.sub {
+  font-size: var(--text-sm);
+  color: var(--ink-3);
+  line-height: var(--leading-base);
+}
+
+.actions {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  margin-top: var(--space-2);
+}
+
+.continueBtn {
+  width: 100%;
+  min-height: var(--touch-min);
+  padding: 0 var(--space-5);
+  background: var(--grad-primary);
+  color: #fff;
+  border: none;
+  border-radius: var(--radius-md);
+  font-family: var(--font-ui);
+  font-size: var(--text-base);
+  cursor: pointer;
+  box-shadow: 0 2px 12px rgba(58, 110, 160, 0.30);
+  transition: opacity var(--duration-fast), box-shadow var(--duration-fast);
+}
+
+.continueBtn:hover {
+  opacity: 0.92;
+  box-shadow: 0 4px 20px rgba(58, 110, 160, 0.42);
+}
+
+.exitBtn {
+  width: 100%;
+  min-height: var(--touch-min);
+  padding: 0 var(--space-5);
+  background: transparent;
+  color: var(--ink-3);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-md);
+  font-family: var(--font-ui);
+  font-size: var(--text-sm);
+  cursor: pointer;
+  transition: color var(--duration-fast), background var(--duration-fast);
+}
+
+.exitBtn:hover {
+  color: var(--ink);
+  background: var(--glass-s);
+}
+
+@media (max-width: 480px) {
+  .card {
+    padding: var(--space-6) var(--space-5);
+  }
+}

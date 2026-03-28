@@ -1,0 +1,114 @@
+.page {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: var(--space-8) var(--space-6);
+}
+
+@media (max-width: 640px) {
+  .page {
+    padding: var(--space-6) var(--space-4);
+  }
+}
+
+.header {
+  margin-bottom: var(--space-8);
+}
+
+.title {
+  font-family: var(--font-ui);
+  font-size: var(--text-xl);
+  font-weight: 300;
+  color: var(--blue);
+  letter-spacing: var(--tracking-tight);
+  margin-bottom: var(--space-2);
+}
+
+.desc {
+  font-size: var(--text-sm);
+  color: var(--ink-3);
+  line-height: var(--leading-base);
+}
+
+/* Exercise cards */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-2);
+  margin-bottom: var(--space-8);
+}
+
+@media (max-width: 480px) {
+  .cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.card {
+  padding: var(--space-3) var(--space-3);
+  background: var(--paper-s);
+  border: 1px solid var(--rule);
+  border-radius: var(--radius-lg);
+  font-family: var(--font-ui);
+  font-size: var(--text-sm);
+  color: var(--ink);
+  text-align: left;
+  cursor: pointer;
+  transition: border-color var(--duration-fast), background var(--duration-fast), transform var(--duration-fast);
+  line-height: var(--leading-base);
+}
+
+.card:hover:not(.cardDim) {
+  background: var(--blue-dim);
+  border-color: var(--blue-line);
+  transform: translateY(-1px);
+}
+
+.cardDim {
+  color: var(--ink-4);
+  cursor: default;
+  opacity: 0.5;
+}
+
+.info {
+  font-size: var(--text-sm);
+  color: var(--ink-3);
+  line-height: var(--leading-base);
+  padding: var(--space-4);
+  background: var(--paper-s);
+  border: 1px solid var(--rule-s);
+  border-radius: var(--radius-md);
+}
+
+/* Exercise view */
+.exerciseHeader {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: var(--space-6);
+}
+
+.recallPrompt {
+  margin-top: var(--space-6);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-4);
+  animation: fadeIn var(--duration-base) var(--ease-out);
+}
+
+.recallText {
+  font-family: var(--font-ui);
+  font-size: var(--text-base);
+  color: var(--ink-2);
+}
+
+.inputArea {
+  margin-top: var(--space-6);
+  max-width: 360px;
+  animation: fadeIn var(--duration-base) var(--ease-out);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}

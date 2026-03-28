@@ -1,0 +1,1 @@
+export { HouseTabs } from './HouseTabs'

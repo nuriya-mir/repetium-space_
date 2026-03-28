@@ -1,0 +1,10 @@
+.container {
+  cursor: grab;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  touch-action: none;
+}
+
+.container:active {
+  cursor: grabbing;
+}

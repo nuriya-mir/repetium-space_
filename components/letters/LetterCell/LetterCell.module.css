@@ -1,0 +1,71 @@
+.cell {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: background var(--duration-fast), border-color var(--duration-fast), transform var(--duration-fast);
+  font-family: var(--font-read);
+  font-weight: 400;
+  user-select: none;
+  position: relative;
+  border: 1px solid var(--rule);
+}
+
+.cell:hover {
+  transform: scale(1.06);
+  z-index: 1;
+}
+
+.sm {
+  width: 40px;
+  height: 40px;
+  font-size: var(--text-base);
+}
+
+.md {
+  width: 52px;
+  height: 52px;
+  font-size: var(--text-lg);
+}
+
+.lg {
+  width: 64px;
+  height: 64px;
+  font-size: var(--text-xl);
+}
+
+.empty {
+  background: var(--paper-s);
+  border-color: var(--rule);
+  color: var(--ink-4);
+}
+
+.seen {
+  background: var(--blue-dim);
+  border-color: var(--blue-line);
+  color: var(--blue);
+}
+
+.mastered {
+  background: var(--teal-dim);
+  border-color: var(--teal);
+  color: var(--teal);
+}
+
+.letter {
+  line-height: 1;
+}
+
+.dot {
+  position: absolute;
+  bottom: 4px;
+  right: 4px;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--ink-3);
+}
+
+.seen .dot { background: var(--blue); }
+.mastered .dot { background: var(--teal); }

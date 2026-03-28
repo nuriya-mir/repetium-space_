@@ -1,0 +1,338 @@
+.page {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: var(--space-8) var(--space-6);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+
+@media (max-width: 640px) {
+  .page {
+    padding: var(--space-6) var(--space-4);
+    gap: var(--space-5);
+  }
+}
+
+/* Greeting */
+.greeting {
+  margin-bottom: var(--space-2);
+}
+
+.greetingTime {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+  color: var(--ink-4);
+  display: block;
+  margin-bottom: var(--space-1);
+}
+
+.greetingText {
+  font-family: var(--font-ui);
+  font-size: var(--text-xl);
+  font-weight: 300;
+  color: var(--ink);
+  line-height: var(--leading-tight);
+  letter-spacing: var(--tracking-tight);
+}
+
+/* Recommendation card */
+.recLink {
+  text-decoration: none;
+  display: block;
+}
+
+.rec {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  padding: var(--space-4) var(--space-5);
+  background: var(--blue-dim);
+  border: 1px solid var(--blue-line);
+  border-radius: var(--radius-lg);
+  transition: background var(--duration-fast);
+}
+
+.rec:hover {
+  background: rgba(58, 110, 160, 0.18);
+}
+
+.recContent {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.recEyebrow {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  color: var(--blue);
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+}
+
+.recTitle {
+  font-family: var(--font-ui);
+  font-size: var(--text-md);
+  font-weight: 500;
+  color: var(--ink);
+}
+
+.recSub {
+  font-size: var(--text-sm);
+  color: var(--ink-3);
+}
+
+.recArrow {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: var(--blue);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+/* Section headers */
+.sectionHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: var(--space-3);
+}
+
+.sectionTitle {
+  font-family: var(--font-ui);
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--ink);
+}
+
+.sectionLink {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+  color: var(--blue);
+  text-decoration: none;
+}
+
+.sectionLink:hover {
+  text-decoration: underline;
+}
+
+/* Houses grid */
+.housesGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-3);
+}
+
+@media (max-width: 480px) {
+  .housesGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.houseCard {
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  background: var(--glass-s);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-3);
+  transition: border-color var(--duration-fast), background var(--duration-fast);
+}
+
+.houseCard:hover {
+  background: var(--glass);
+  border-color: var(--blue-line);
+}
+
+.houseName {
+  font-family: var(--font-ui);
+  font-size: 11px;
+  color: var(--ink-2);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Mini house grid */
+.miniHouse {
+  width: 100%;
+}
+
+.miniRoof {
+  display: block;
+  width: 100%;
+  line-height: 0;
+}
+
+.miniHouseBody {
+  border: 1px solid var(--rule);
+  border-top: none;
+  border-radius: 0 0 3px 3px;
+  overflow: hidden;
+}
+
+.miniHouseGrid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 1px;
+  padding: 1px;
+  background: var(--rule-s);
+}
+
+.miniCell {
+  aspect-ratio: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-read);
+  font-size: 6.5px;
+  font-weight: 700;
+  color: var(--ink-4);
+  background: var(--paper-s);
+  border-radius: 1px;
+}
+
+.silhouette {
+  color: transparent !important;
+  background: var(--rule-s) !important;
+}
+
+.miniIpa .miniCell {
+  font-size: 4.5px;
+  letter-spacing: -0.02em;
+}
+
+/* Progress bar under house */
+.houseProgress {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.houseBar {
+  flex: 1;
+  height: 3px;
+  background: var(--rule);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.houseBarFill {
+  height: 100%;
+  background: var(--blue);
+  border-radius: 2px;
+  transition: width 0.5s var(--ease-out);
+}
+
+.houseBarFill.gold { background: var(--gold); }
+.houseBarFill.teal { background: var(--teal); }
+
+.houseCount {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  color: var(--ink-4);
+  letter-spacing: var(--tracking-mono);
+  min-width: 28px;
+  text-align: right;
+}
+
+/* Exercise chips */
+.chipRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+.chip {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2px;
+  padding: var(--space-2) var(--space-3);
+  background: var(--glass-s);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid var(--glass-border);
+  border-radius: 10px;
+  text-decoration: none;
+  min-height: var(--touch-min);
+  justify-content: center;
+  transition: border-color var(--duration-fast), background var(--duration-fast);
+}
+
+.chip:hover:not(.chipDim) {
+  border-color: var(--blue-line);
+  background: var(--blue-dim);
+}
+
+.chipDim {
+  opacity: 0.4;
+  cursor: default;
+}
+
+.chipGroup {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  color: var(--blue);
+  letter-spacing: 0.08em;
+}
+
+.chipLabel {
+  font-family: var(--font-ui);
+  font-size: 12px;
+  color: var(--ink-2);
+}
+
+.chipStatus {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  color: var(--ink-4);
+  letter-spacing: var(--tracking-mono);
+}
+
+/* Stats grid */
+.statsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-3);
+  margin-top: var(--space-3);
+}
+
+.stat {
+  background: var(--glass-s);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-3) var(--space-4);
+}
+
+.statNumber {
+  font-family: var(--font-mono);
+  font-size: var(--text-xl);
+  font-weight: 500;
+  color: var(--blue);
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+}
+
+.statLabel {
+  font-size: 11px;
+  color: var(--ink-3);
+  margin-top: 2px;
+  line-height: 1.4;
+}
